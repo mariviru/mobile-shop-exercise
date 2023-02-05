@@ -1,0 +1,22 @@
+/* SETTINGS */
+
+:root { 
+  font-size: 10px;
+}
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --primary-color: #021F59;
+  --secondary-color: #0367A6;
+  --tertiary-color: #ACD7F2;
+  --highlight-dark-color: #F2B56B;
+  --highlight-light-color: #F2D16D;
+  --error-color: #E84141;
+}
+
+$font-family-bold: 'OpenSans-Bold';
+$font-family-semibold: 'OpenSans-SemiBold';
+$font-family-regular: 'OpenSans-Regular';
+$font-family-light: 'OpenSans-Light';

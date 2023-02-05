@@ -1,0 +1,47 @@
+/* BUTTON */
+
+.c-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-radius: 0.4rem;
+  min-width: 80px;
+  font-family: $font-family-semibold;
+  cursor: pointer;
+  transition: all 150ms ease-in;
+
+  &__option-button {
+    background-color: transparent;
+    border: 0.1rem solid var(--tertiary-color);
+    color: var(--primary-color);
+
+    &:hover {
+      background-color: var(--tertiary-color);
+      border: 0.1rem solid var(--tertiary-color);
+      color: var(--primary-color);
+    }
+  }
+
+  &__selected {
+    background-color: var(--secondary-color);
+    border: 0.1rem solid var(--secondary-color);
+    color: var(--white);
+
+    &:hover {
+      background-color: var(--secondary-color);
+      border: 0.1rem solid var(--secondary-color);
+      color: var(--white);
+    }
+  }
+
+  &__primary {
+    background-color: var(--highlight-dark-color);
+    border: 0.1rem solid var(--highlight-dark-color);
+
+    &:hover {
+      background-color: var(--highlight-light-color);
+      border: 0.1rem solid var(--highlight-light-color);
+    }
+  }
+}

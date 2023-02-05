@@ -1,0 +1,41 @@
+/* GENERIC */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: medium none;
+  box-sizing: border-box;
+  font-size: 100%;
+  font: inherit;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
+dl, dd, ol, ul,
+figure,
+hr,
+fieldset, legend {
+  margin:  0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}

@@ -1,0 +1,32 @@
+
+/* SETTINGS */
+
+@import './assets/styles/settings/settings.core';
+
+
+/* FONTS */
+
+@import './assets/styles/fonts/fonts.font-face';
+
+
+/* GENERIC */
+
+@import './assets/styles/generic/generic.reset';
+@import './assets/styles/generic/generic.reset';
+
+
+/* OBJECTS */
+
+@import './assets/styles/objects/objects.wrapper';
+@import './assets/styles/objects/objects.container';
+
+
+/* COMPONENTS */
+
+@import './assets/styles/components/components.list';
+@import './assets/styles/components/components.header';
+@import './assets/styles/components/components.search-bar';
+@import './assets/styles/components/components.button';
+@import './assets/styles/components/components.list-item';
+@import './assets/styles/components/components.detail';
+@import './assets/styles/components/components.product-card';

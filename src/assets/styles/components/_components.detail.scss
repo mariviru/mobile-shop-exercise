@@ -1,0 +1,32 @@
+/* DETAIL */
+
+.c-detail {
+
+  &__breadcrumbs {
+    color: var(--secondary-color);
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    padding: 2.4rem;
+    margin-bottom: 4.8rem;
+
+    @media (min-width: 1024px) {
+      margin-bottom: 9.6rem;
+    }
+
+    a {
+      text-decoration: underline;
+      
+      &:visited {
+        color: var(--secondary-color);
+      }
+    }
+  }
+
+  &__card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem;
+  }
+}

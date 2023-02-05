@@ -1,4 +1,29 @@
-# Getting Started with Create React App
+# Mobile Shop Exercise
+
+This project consists of an SPA to buy mobile devices.
+Contains two views:
+- The list of mobiles with a search engine, with which you can perform instant searches by brand or model.
+ - The product detail page.
+
+The detail page shows product information and two sets of buttons to choose color and storage.\
+Once the options are selected, the buy button will add the product to the cart. If any of the options has not been selected, an error message is displayed.\
+The number of products added to the cart are displayed on the right side of the header.\
+The data is persisted for one hour.
+
+Both the logo in the header and the breadcrumbs on the detail page redirect us to the main page.
+
+The design is responsive so that it can be displayed correctly both in desktop version and on mobile devices.
+
+## Instalation
+
+```
+$ git clone https://github.com/mariviru/mobile-shop-exercise.git
+$ cd ../path/to/the/file
+$ npm install
+$ npm start
+```
+
+# Development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -38,33 +63,3 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
