@@ -78,8 +78,6 @@ const ProductCard = (props) => {
     });
   };
 
-  // localStorage.removeItem('cart')
-
   return (
     <div className="c-product-card">
       <div className="c-product-card__image-wrapper">
