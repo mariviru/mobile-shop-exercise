@@ -1,9 +1,8 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from "react";
 
 import { DataContext, Context } from "../utils/context";
-import { useEffect } from "react";
 
 const Header = () => {
   const { shoppingCartQuantity } = DataContext(Context);
@@ -11,7 +10,7 @@ const Header = () => {
   const [badgeNumber, setBadgeNumber] = useState(0);
 
   useEffect(() => {
-    if (localCartData && localCartData > 0) {
+    if (localCartData) {
       setBadgeNumber(localCartData);
     } else {
       setBadgeNumber(shoppingCartQuantity);
@@ -27,7 +26,7 @@ const Header = () => {
             <span className="c-header__text">mobile shop</span>
           </h1>
           <p className="c-header__slogan">Your trusted online store</p>
-      </div>
+        </div>
       </Link>
       <button className='c-header__shopping-cart'>
         <FontAwesomeIcon className='c-header__cart-icon' icon="cart-shopping" size="2x"/>

@@ -1,10 +1,11 @@
 import { createContext, useContext, useReducer } from 'react';
-import { SET_DETAIL_DATA, SET_INDEX_DATA, SET_SHOPPING_CART_QUANTITY } from '../assets/constants';
+import { SET_DETAIL_DATA, SET_INDEX_DATA, SET_SELECTED_PRODUCT, SET_SHOPPING_CART_QUANTITY } from '../assets/constants';
 
 const initialState = {
   indexData: [],
   detailData: {},
   shoppingCartQuantity: 0,
+  selectedProduct: { id: '', colorCode: undefined, storageCode: undefined }
 };
 
 const reducer = (state, action) => {
@@ -25,6 +26,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         shoppingCartQuantity: action.payload,
+    }
+
+    case SET_SELECTED_PRODUCT:
+      return {
+        ...state,
+        selectedProduct: action.payload,
     }
 
     default:

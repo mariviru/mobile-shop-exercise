@@ -1,81 +1,32 @@
-import { useEffect, useState } from 'react';
-
-import { CartPostApiCall } from '../utils/apiCalls';
-
 import { DataContext, Context } from '../utils/context';
-
-import { CART_POST_URL, COLORS, STORAGES, SET_SHOPPING_CART_QUANTITY } from '../assets/constants';
+import { COLORS, STORAGES, SET_SELECTED_PRODUCT } from '../assets/constants';
 
 const ProductCard = (props) => {
-  const { product } = props;
-  const { id, imgUrl, brand, model, price, cpu, ram, os, battery, displayResolution, primaryCamera, secondaryCmera, dimentions, weight, options } = product;
-  const [productSelected, setProductSelected] = useState({
-    id,
-    colorCode: undefined,
-    storageCode: undefined
-  });
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
-  const { shoppingCartQuantity, dispatch } = DataContext(Context);
-  const url = CART_POST_URL;
-  const localCartData = JSON.parse(localStorage.getItem('cart'));
+  const { product, actionButton, error } = props;
+  const { imgUrl, brand, model, price, cpu, ram, os, battery, displayResolution, primaryCamera, secondaryCmera, dimentions, weight, options } = product;
+  const { selectedProduct, dispatch } = DataContext(Context);
 
   const buttonSelected = (type, code) => {
-    const isColorSelected = productSelected.colorCode === code;
-    const isStorageSelected = productSelected.storageCode === code;
+    const isColorSelected = selectedProduct.colorCode === code;
+    const isStorageSelected = selectedProduct.storageCode === code;
     const button = {
       [COLORS]: {
         isSelected: type === COLORS && isColorSelected,
-        action: () => isColorSelected ? setProductSelected({ ...productSelected, colorCode: undefined }) : setProductSelected({ ...productSelected, colorCode: code })
+        action: () => isColorSelected ? dispatch({type: SET_SELECTED_PRODUCT, payload: { ...selectedProduct, colorCode: undefined }}) : dispatch({type: SET_SELECTED_PRODUCT, payload: { ...selectedProduct, colorCode: code }})
       },
       [STORAGES]: {
         isSelected: type === STORAGES && isStorageSelected,
-        action: () => isStorageSelected ? setProductSelected({ ...productSelected, storageCode: undefined }) : setProductSelected({ ...productSelected, storageCode: code })
+        action: () => isStorageSelected ? dispatch({type: SET_SELECTED_PRODUCT, payload: { ...selectedProduct, storageCode: undefined }}) : dispatch({type: SET_SELECTED_PRODUCT, payload: { ...selectedProduct, storageCode: code }})
       }
     };
 
     return button[type];
   };
 
-  useEffect(() => {
-    let newProductSelection = { id, colorCode: productSelected.colorCode, storageCode: productSelected.storageCode };
-
-    if (options?.colors.length === 1) newProductSelection = {...newProductSelection, colorCode: options.colors[0].code};
-    if (options?.storages.length === 1) newProductSelection = {...newProductSelection, storageCode: options.storages[0].code}
-
-    setProductSelected(newProductSelection);
-
-    return () => {
-      setProductSelected({
-        id,
-        colorCode: undefined,
-        storageCode: undefined
-      });
-    };
-  }, [id, options?.colors, options?.storages, productSelected.colorCode, productSelected.storageCode]);
-
-  useEffect(() => {
-    if (productSelected.colorCode && productSelected.storageCode) {
-      setShowErrorMessage(false);
-    }
-  }, [productSelected.colorCode, productSelected.storageCode]);
-
   const renderOptions = (buttons, type) => {
     return (buttons.map((button) => (
       <button key={button.code} className={`c-button c-button__option-button ${buttonSelected(type, button.code).isSelected || buttons.length === 1 ? 'c-button__selected' : ''}`} onClick={() => buttonSelected(type, button.code).action()}>{button.name}</button>
     )));
-  };
-
-  const AddToCart = () => {
-    if (!productSelected.colorCode || !productSelected.storageCode) {
-      setShowErrorMessage(true);
-      return;
-    }
-
-    CartPostApiCall(url, productSelected, (response) => {
-      dispatch({ type: SET_SHOPPING_CART_QUANTITY, payload: shoppingCartQuantity + response.count });
-
-      localStorage.setItem('cart', JSON.stringify((localCartData ? localCartData : shoppingCartQuantity) + response.count));
-    });
   };
 
   return (
@@ -102,9 +53,9 @@ const ProductCard = (props) => {
             {options?.storages && renderOptions(options.storages, STORAGES)}
           </div>
           <div className="c-product-card__buy-button">
-            <button className="c-button c-button__primary" onClick={() => AddToCart()}>Comprar</button>
+            <button className="c-button c-button__primary" onClick={() => actionButton()}>Comprar</button>
           </div>
-          {showErrorMessage && <p className="c-product-card__error">* Debes seleccionar un color y un tamaño de almacenamiento para compar el producto.</p>}
+          {error && <p className="c-product-card__error">* Debes seleccionar un color y un tamaño de almacenamiento para compar el producto.</p>}
         </div>
       </div>
     </div>

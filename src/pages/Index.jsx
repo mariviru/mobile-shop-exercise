@@ -1,13 +1,12 @@
 import { useEffect, useState, useMemo } from "react";
 
 import { GetApiCall } from "../utils/apiCalls";
-
 import { DataContext, Context } from "../utils/context";
+import { checkTime } from "../utils/checkTime";
+import { GET_URL, SET_INDEX_DATA } from "../assets/constants";
 
 import List from "../components/List";
 import SearchBar from "../components/SearchBar";
-import { GET_URL, SET_INDEX_DATA } from "../assets/constants";
-import { checkTime } from "../utils/checkTime";
 
 const Index = () => {
   const { indexData, dispatch } = DataContext(Context);
